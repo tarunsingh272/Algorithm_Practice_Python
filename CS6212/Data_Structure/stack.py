@@ -9,13 +9,14 @@ import unittest
 
 class Stack(object):
     """Push down Stack Linked-list implementation"""
-    _n: int = None
-    _first = None
 
     class _Node(object):
         """Private class of Linked List Node"""
         item = None
         next = None
+
+    _n: int = None
+    _first: _Node = None
 
     def __init__(self)->None:
         """Create an empty stack"""
@@ -46,7 +47,7 @@ class Stack(object):
         return self._n
 
 
-class TestStack(unittest.TestCase):
+class _TestStack(unittest.TestCase):
     def test(self):
         test_input = ['to', 'be', 'or', 'not', 'to', '-', 'be', '-', '-', 'that', '-', '-', '-', 'is']
         s = Stack()
