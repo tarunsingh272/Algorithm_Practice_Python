@@ -5,7 +5,7 @@
 
 ## Data Structures
 - [x] Stack: Algs4 P149
-- [ ] Queue
+- [x] Queue
 - [ ] Binary Search Tree
 
 ## Divide and Counquer
