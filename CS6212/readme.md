@@ -4,11 +4,12 @@
 [Syllabus](https://www2.seas.gwu.edu/~ayoussef/cs6212/)
 
 ## Data Structures
-- [x] Stack: Algs4 P149
-- [x] Queue
-- [ ] Binary Search Tree
+- [x] Stack: Algorithms 4th P149
+- [x] Queue: Algorithms 4th P151
+- [x] Binary Search Tree
+- [ ] Heaps
 
-## Divide and Counquer
+## Divide and Conquer
 - [ ] Merge Sort
 - [ ] Quick Sort
 - [ ] Order Statistics Problem
@@ -29,7 +30,7 @@
 - [ ] Tree Traversal Techniques
 - [ ] Depth-First Search
 - [ ] Breadth-First Search
-- [ ] Biconnectivity: A Major Application of DFS
+- [ ] Bi-connectivity: A Major Application of DFS
 
 ## Backtracking
 - [ ] Generate all permutations
