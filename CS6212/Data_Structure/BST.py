@@ -30,7 +30,7 @@ class BST(object):
 
     def search(self, a: int) ->Any:
         """Search element in the BST with key"""
-        p:BST._Node = self._root
+        p: BST._Node = self._root
         if p.key is None:  # empty tree
             return None
         while p is not None and p.key != a:
@@ -121,8 +121,6 @@ class BST(object):
                     q.right = s.left
                 return
 
-
-
     def bfs(self) -> List:
         """Breadth First Search in BST, for visualization"""
         visit = []
@@ -158,7 +156,6 @@ class TestBST(unittest.TestCase):
         return t
 
     def test_search(self):
-        x = 7
         t = self.test_insert()
         self.assertEqual(t.search(7), 7)
 
@@ -189,3 +186,7 @@ class TestBST(unittest.TestCase):
         t.delete(6)
         expected = [4, 2, 5, 1, 3, 7]
         self.assertListEqual(expected, t.bfs())
+
+
+if __name__ == '__main__':
+    unittest.main()
