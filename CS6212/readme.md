@@ -7,7 +7,7 @@
 - [x] Stack: Algorithms 4th P149
 - [x] Queue: Algorithms 4th P151
 - [x] Binary Search Tree
-- [ ] Heaps
+- [x] Heaps
 
 ## Divide and Conquer
 - [ ] Merge Sort
