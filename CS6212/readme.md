@@ -10,7 +10,7 @@
 - [x] Heaps
 
 ## Divide and Conquer
-- [ ] Merge Sort
+- [x] Merge Sort
 - [ ] Quick Sort
 - [ ] Order Statistics Problem
 
