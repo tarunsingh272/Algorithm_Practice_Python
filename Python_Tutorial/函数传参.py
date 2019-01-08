@@ -1,6 +1,8 @@
 def array_swap(array):
-    for i in range(len(array)//2):
-        array[i], array[len(array)-1-i] = array[len(array)-1-i], array[i]
+    copied = [array[i] for i in range(len(array))]
+    for i in range(len(copied)//2):
+        copied[i], copied[len(copied)-1-i] = copied[len(copied)-1-i], copied[i]
+    array = copied
 
 
 def number_change(a):
