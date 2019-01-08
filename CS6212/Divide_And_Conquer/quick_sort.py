@@ -1,6 +1,8 @@
 """
 Quick Sort Ascending and Descending
+The pseudo code contains error:
 https://www2.seas.gwu.edu/~ayoussef/cs6212/divide-and-conquer.html#2ndapplication
+Reference: Algorithms 4th. P289
 By: Xiaochi(George)Li
 """
 from typing import List, Union
@@ -43,6 +45,7 @@ def quick_sort(array: List[Union[int, float]],
     if q is None:  # entry point from outside
         q = len(array) - 1
     if p != q:  # Base case, when p == q, do nothing
+        """There is another fix according to Algorithms 4th, replace the base condition by p <= q"""
         r: int = partition(array, p, q, reverse)
         """Fix of a weird bug: I think the reason is that when r is at the head or the tail,
         it indicates that we should not sort the left(<r) or right(>r) sub array, because they don't exist
