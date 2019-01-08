@@ -22,6 +22,8 @@ def partition(array: List[Union[int, float]],
                 array[i], array[j] = array[j], array[i]
                 i += 1
                 j -= 1
+        array[p], array[j] = array[j], array[p]
+
     else:
         while i <= j:
             while i <= q and array[i] >= a:
