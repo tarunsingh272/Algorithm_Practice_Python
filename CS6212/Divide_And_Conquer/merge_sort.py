@@ -62,17 +62,65 @@ def merge_sort(array: List[Union[int, float]],
         merge(array, i, j, reverse)
 
 
-class TestSort(unittest.TestCase):
-    def test_not_reverse(self):
-        from random import randint
-        array = [randint(1, 100) for _ in range(10)]
-        expected = sorted(array, reverse=False)
-        merge_sort(array,reverse=False)
-        self.assertListEqual(expected, array)
+# class TestSort(unittest.TestCase):
+#     def test_not_reverse(self):
+#         from random import randint
+#         array = [randint(1, 100) for _ in range(10000)]
+#         expected = sorted(array, reverse=False)
+#         merge_sort(array,reverse=False)
+#         self.assertListEqual(expected, array)
+#
+#     def test_reverse(self):
+#         from random import randint
+#         array2 = [randint(1, 100) for _ in range(10000)]
+#         expected2 = sorted(array2, reverse=True)
+#         merge_sort(array2, reverse=True)
+#         self.assertListEqual(expected2, array2)
 
-    def test_reverse(self):
-        from random import randint
-        array2 = [randint(1, 100) for _ in range(10)]
-        expected2 = sorted(array2, reverse=True)
-        merge_sort(array2, reverse=True)
-        self.assertListEqual(expected2, array2)
+def mergeSort(arr):
+    if len(arr) > 1:
+        mid = len(arr) // 2  # Finding the mid of the array
+        L = arr[:mid]  # Dividing the array elements
+        R = arr[mid:]  # into 2 halves
+
+        mergeSort(L)  # Sorting the first half
+        mergeSort(R)  # Sorting the second half
+
+        i = j = k = 0
+
+        # Copy data to temp arrays L[] and R[]
+        while i < len(L) and j < len(R):
+            if L[i] < R[j]:
+                arr[k] = L[i]
+                i += 1
+            else:
+                arr[k] = R[j]
+                j += 1
+            k += 1
+
+        # Checking if any element was left
+        while i < len(L):
+            arr[k] = L[i]
+            i += 1
+            k += 1
+
+        while j < len(R):
+            arr[k] = R[j]
+            j += 1
+            k += 1
+
+def speed_test(size):
+    from random import randint
+    import timeit
+    array = [randint(1, 100) for _ in range(size)]
+    start = timeit.default_timer()
+    # x = [[array[i] for i in range(len(array))]]
+    # mergeSort(array)
+    merge_sort(array)
+    time_elapsed = timeit.default_timer() - start
+    return time_elapsed
+
+
+for i in [5000*x for x in range(4, 5)]:
+    print(i, speed_test(i))
+

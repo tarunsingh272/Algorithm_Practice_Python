@@ -11,7 +11,7 @@
 
 ## Divide and Conquer
 - [x] Merge Sort
-- [ ] Quick Sort
+- [x] Quick Sort
 - [ ] Order Statistics Problem
 
 ## The Greedy Method

@@ -56,18 +56,33 @@ def quick_sort(array: List[Union[int, float]],
             quick_sort(array, r + 1, q, reverse)
 
 
-class TestSort(unittest.TestCase):
-    def test_not_reverse(self):
-        from random import randint
-        array = [randint(1, 100) for _ in range(100)]
-        # array = [3,1,2]
-        expected = sorted(array, reverse=False)
-        quick_sort(array, reverse=False)
-        self.assertListEqual(expected, array)
+# class TestSort(unittest.TestCase):
+#     def test_not_reverse(self):
+#         from random import randint
+#         array = [randint(1, 100) for _ in range(100)]
+#         # array = [3,1,2]
+#         expected = sorted(array, reverse=False)
+#         quick_sort(array, reverse=False)
+#         self.assertListEqual(expected, array)
+#
+#     def test_reverse(self):
+#         from random import randint
+#         array2 = [randint(1, 100) for _ in range(100)]
+#         expected2 = sorted(array2, reverse=True)
+#         quick_sort(array2, reverse=True)
+#         self.assertListEqual(expected2, array2)
 
-    def test_reverse(self):
-        from random import randint
-        array2 = [randint(1, 100) for _ in range(100)]
-        expected2 = sorted(array2, reverse=True)
-        quick_sort(array2, reverse=True)
-        self.assertListEqual(expected2, array2)
+def speed_test(size):
+    from random import randint
+    import timeit
+    array = [randint(1, 100) for _ in range(size)]
+    start = timeit.default_timer()
+    # x = [[array[i] for i in range(len(array))]]
+    # mergeSort(array)
+    quick_sort(array)
+    time_elapsed = timeit.default_timer() - start
+    return time_elapsed
+
+
+for i in [5000*x for x in range(1, 10)]:
+    print(i, speed_test(i))
