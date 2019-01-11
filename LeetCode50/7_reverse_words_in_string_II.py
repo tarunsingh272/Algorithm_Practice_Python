@@ -20,6 +20,8 @@ def reverse(string, begin=0, end=None):
 
 
 def reverse_words(string):
+    if len(string) <= 1:
+        return string
     string = reverse(string)
     i = 0
     for j in range(len(string)+1):
@@ -42,3 +44,6 @@ class Test(unittest.TestCase):
 
     def test_reverse_words(self):
         self.assertSequenceEqual(reverse_words('the sky is blue'), 'blue is sky the')
+
+    def test_empty(self):
+        self.assertEqual('', reverse_words(''))
