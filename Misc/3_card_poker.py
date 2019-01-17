@@ -1,4 +1,10 @@
 from collections import Counter
+"""
+两对牌，比较p1赢家，如果两张、三张一样则比相同的牌的大小，如果一致则比剩下的。
+全不一样则从最大的开始比较。
+思路：用set来判断类型，从大情况（1种牌胜三种牌）开始写if判断到小情况，用Counter来挑出一对牌与一张牌
+"""
+
 
 def p1_win_count(hands):
     """
@@ -48,9 +54,6 @@ def p1_win_count(hands):
                             p1_win += 1
                             print('p1 win')
 
-
-
-
     return p1_win
 
 
@@ -61,4 +64,4 @@ hands = [
     [8, 8, 4, 8, 8, 2],
     [8, 8, 8, 5, 5, 5]
 ]
-p1_win_count(hands)
+print(p1_win_count(hands))
