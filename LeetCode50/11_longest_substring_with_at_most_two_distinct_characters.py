@@ -1,4 +1,4 @@
-import unittest
+import unittest; from typing import List
 """结合实例纸面推导，算法的设计思路是保持一个仅包含两种字符的窗口"""
 def find_length_of_substring(s: str) -> int:
     # 假设有两种字符：字符1 与 字符2
@@ -17,9 +17,31 @@ def find_length_of_substring(s: str) -> int:
     return max(len(s) - i, max_len)
 
 
+def better_solution(s: str) -> int:
+    """改进的算法允许子字符串有K个不同种类的字符"""
+    count: List[int] = [0] * 256  # 遇到某个字符的次数
+    i: int = 0  # i是子字符串的开头
+    number_distinct = 0
+    max_len = 0
+    for j in range(0, len(s)):
+        if count[ord(s[j])] == 0:  # 如果从未遇到，则distinct计数加一
+            number_distinct += 1
+        count[ord(s[j])] += 1  # 遇到某个字符的次数+1
+        while number_distinct > 2:  # 这里可以选允许的不同字符种类个数，
+            # 出现第三种字符时，将i不断前移（36行）且减去s[i]的字符count计数（33行），
+            # 直至为零表示子字符串中无此字符（34行），distinct计数减1（35行）
+            count[ord(s[i])] -= 1
+            if count[ord(s[i])] == 0:
+                number_distinct -= 1
+            i += 1
+        max_len = max(j - i + 1, max_len)  # 子字符串是从i到j的
+    return max_len
+
+
 class Test(unittest.TestCase):
     def test(self):
         string = 'abaac'
         self.assertEqual(4, find_length_of_substring(string))
+        self.assertEqual(4, better_solution(string))
 
 
