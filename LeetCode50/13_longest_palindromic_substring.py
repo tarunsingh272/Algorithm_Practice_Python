@@ -8,7 +8,7 @@ class Solution:
         :type s: str
         :rtype: str
         """
-        p: List[List[bool]] = [[False]*len(s)]*len(s)
+        p: List[List[bool]] = [[False]*len(s) for _ in range(len(s))]
         j: int = 0
         max_len:int = 0
         best_i = 0
