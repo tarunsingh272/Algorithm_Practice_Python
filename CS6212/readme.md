@@ -27,9 +27,9 @@
 - [ ] Optimal Binary Search Trees
 
 ## Graph Search Techniques
-- [ ] Tree Traversal Techniques
-- [ ] Depth-First Search
-- [ ] Breadth-First Search
+- [x] Tree Traversal Techniques
+- [x] Depth-First Search
+- [x] Breadth-First Search
 - [ ] Bi-connectivity: A Major Application of DFS
 
 ## Backtracking
