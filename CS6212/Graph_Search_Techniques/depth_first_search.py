@@ -71,8 +71,6 @@ class DepthFirstSearch(object):
         return self._trace
 
 
-
-
 class TestDFS(unittest.TestCase):
     def create_graph(self) -> Graph:
         """tinyGG on Alg4 P532"""
@@ -90,7 +88,7 @@ class TestDFS(unittest.TestCase):
         G = Graph(inputs)
         return G
 
-    def test_recurisive_dfs(self):
+    def test_recursive_dfs(self):
         G = self.create_graph()
         rdfs = RecursiveDepthFirstSearch()
         self.assertListEqual([0, 2, 1, 3, 5, 4], rdfs.trace(G, 0))
@@ -99,5 +97,3 @@ class TestDFS(unittest.TestCase):
         G = self.create_graph()
         dfs = DepthFirstSearch()
         self.assertListEqual([0, 2, 1, 3, 5, 4], dfs.trace(G, 0))
-
-
