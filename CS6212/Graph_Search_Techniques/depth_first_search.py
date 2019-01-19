@@ -1,3 +1,9 @@
+"""
+Depth First Search implementation
+Recursive and Non-recursive
+By: Xiaochi (George) Li
+"""
+
 from Data_Structure.graph import AdjListGraph as Graph
 from collections import deque
 from typing import List
