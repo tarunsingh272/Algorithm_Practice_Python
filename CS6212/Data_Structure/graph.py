@@ -25,14 +25,20 @@ class AdjListGraph(object):
         if len(inputs) != E+1:
             raise ValueError('Error in the input, the size does not match number of Edges')
         self._V = V
+        self._E = 0
         self._adj = [None]*V
-        for i in range(V):
+        for i in range(V):  # initialize adjacency list as deque
             self._adj[i]: deque = deque()
-        for i in range(1, len(inputs)):
+        for i in range(1, len(inputs)):  # add edges
             v = inputs[i][0]
             w = inputs[i][1]
-            self._adj[v].appendleft(w)
-            self._adj[w].appendleft(v)
+            self.add_edge(v, w)
+
+    def add_edge(self, v: int, w: int):
+        """a more flexible way to add edge"""
+        self._adj[v].appendleft(w)
+        self._adj[w].appendleft(v)
+        self._E += 1
 
     def adj(self, v: int) -> deque:
         """get the adjacency list of a vertex"""
@@ -46,6 +52,12 @@ class AdjListGraph(object):
             for w in self.adj(v):
                 adj_list[v].append(w)
         return adj_list
+
+    def V(self) -> int:
+        return self._V
+
+    def E(self) -> int:
+        return self._E
 
 
 class Tests(unittest.TestCase):
@@ -69,6 +81,8 @@ class Tests(unittest.TestCase):
             [5, 3]
         ]
         G = AdjListGraph(inputs)
+        self.assertEqual(13, G.E())
+        self.assertEqual(13, G.V())
         self.assertDictEqual(
             {0: [6, 2, 1, 5],
              1: [0],
