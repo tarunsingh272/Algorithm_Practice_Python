@@ -1,6 +1,8 @@
 import unittest
 from typing import List
 """简单解法和DP解法都值得学习"""
+# todo: 读一下manacher's algorithm
+
 
 class DPSolution:
     def longestPalindrome(self, s):
