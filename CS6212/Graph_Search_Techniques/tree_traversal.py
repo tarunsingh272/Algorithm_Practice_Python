@@ -54,6 +54,13 @@ class TreeTraversal(object):
 
 
 class TestTreeTraversal(TestBST):
+    """
+    Tree:    4
+          /  \
+        2     6
+       / |  /  |
+      1  3  5   7
+    """
     def test_in_order(self):
         tree = self.create_tree()
         tt = TreeTraversal()
