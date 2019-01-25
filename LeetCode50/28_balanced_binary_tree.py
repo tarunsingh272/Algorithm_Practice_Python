@@ -36,8 +36,18 @@ class BruteForceTopDownRecursion(Solution):
 
 
 class BottomUp(Solution):
+    def max_depth(self, root: TreeNode):
+        if root is None:
+            return 0
+        left = self.max_depth(root.left)
+        right = self.max_depth(root.right)
+        if abs(left - right) > 1 or left is False or right is False:
+            return False
+        else:
+            return max(left, right) + 1
+
     def isBalanced(self, root):
-        pass
+        return self.max_depth(root) is not False
 
 
 class Test(TestCase):
@@ -48,6 +58,7 @@ class Test(TestCase):
         t.right.left = TreeNode(15)
         t.right.left = TreeNode(7)
         self.assertTrue(BruteForceTopDownRecursion().isBalanced(t))
+        self.assertTrue(BottomUp().isBalanced(t))
 
     def test_false(self):
         t = TreeNode(1)
@@ -58,3 +69,4 @@ class Test(TestCase):
         t.left.left.left = TreeNode(4)
         t.left.left.right = TreeNode(4)
         self.assertFalse(BruteForceTopDownRecursion().isBalanced(t))
+        self.assertFalse(BottomUp().isBalanced(t))
