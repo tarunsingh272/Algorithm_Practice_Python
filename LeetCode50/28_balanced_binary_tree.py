@@ -36,6 +36,7 @@ class BruteForceTopDownRecursion(Solution):
 
 
 class BottomUp(Solution):
+    """O(n) time, O(n) Space"""
     def max_depth(self, root: TreeNode):
         if root is None:
             return 0
