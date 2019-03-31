@@ -17,7 +17,10 @@ def part_one(string_list):
     else:
         return result_list
 
-def part_2(input):
+def part_2(input_string):
+    input = part_one(input_string)
+    if len(input) = 0:
+        return ''
     res = ''
     dict1 = {}
 
@@ -31,7 +34,8 @@ def part_2(input):
         res += dict1[res[-3:]]
     return res
 
-def part_3(string, mapping):
+def part_3(input_string, mapping):
+    string = part_2(input_string)
     i = 0
     result = {}
     s_list = []
