@@ -1,6 +1,8 @@
 import unittest
 import re
-
+"""
+https://www.1point3acres.com/bbs/thread-451074-1-1.html
+"""
 
 def part_one(string_list):
     result_list = []
@@ -19,7 +21,7 @@ def part_one(string_list):
 
 def part_2(input_string):
     input = part_one(input_string)
-    if len(input) = 0:
+    if len(input) == 0:
         return ''
     res = ''
     dict1 = {}
@@ -34,13 +36,15 @@ def part_2(input_string):
         res += dict1[res[-3:]]
     return res
 
-def part_3(input_string, mapping):
-    string = part_2(input_string)
+def analyze_dna(strands, codon_mapping):
+    string = part_2(strands)
     i = 0
     result = {}
     s_list = []
     while i < len(string):
-        dna = mapping[string[i:i+3]]
+        if len(string[i:i+3]) < 3:
+            break
+        dna = codon_mapping[string[i:i+3]]
         if dna not in result:
             result[dna] = 1
         else:
@@ -49,12 +53,9 @@ def part_3(input_string, mapping):
     for item in sorted(result.items()):
         s_list.append(item[0]+': '+str(item[1])+'\n')
 
-    return ''.join(s_list)
+    return  ''.join(s_list)
 
 if __name__ =='__main__':
-    test_1 = ['ATGCATGCATGCATGC', 'ATGCBATGCATGC', 'ATGCatgcatgc']
-    print(part_one(test_1))
-    test_2 = ['AGTGGGGGGGGG', 'AAACCCAATTT', 'TTTACACAGCT', 'GCTGGGCCCAGT']
-    print(part_2(test_2))
-    print(part_3('AAATTTGGGAAA', {'AAA': 'Lysine', 'GGG': 'Glycine', 'TTT': 'Phenylalanine'}))
-
+    print(part_one(['AATTGGCCAATTG','TTGAATTGGCCAAAA','AAATTTGGGCCC','AAAEEERRRTTT','NEWUSER123']))
+    print(part_2(['AATTGGCCAATTG', 'TTGAATTGGCCAAAA', 'AAATTTGGGCCC']))
+    print(part_3(['AATTGGCCAATTG','TTGAATTGGCCAAAA','AAATTTGGGCCC','AAAEEERRRTTT','NEWUSER123'], {}))
